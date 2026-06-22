@@ -62,7 +62,7 @@
         left: 0;
         right: 0;
         z-index: 100;
-        background: rgba(251, 249, 245, 0.97);
+        background: linear-gradient(135deg, #2a2620 0%, #3a3530 100%);
         backdrop-filter: blur(8px);
         border-bottom: 3px solid var(--orange);
         display: flex;
@@ -70,16 +70,58 @@
         justify-content: space-between;
         padding: 0 2rem;
         height: 68px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       }
       .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
         font-family: "Oswald", sans-serif;
+        color: #fff;
+        text-decoration: none;
+      }
+      .logo img {
+        height: 70px;
+        width: 70px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        object-fit: cover;
+        padding: 3px;
+        box-shadow: 
+          0 8px 16px rgba(0, 0, 0, 0.4),
+          0 2px 4px rgba(232, 89, 12, 0.3),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        flex-shrink: 0;
+      }
+      .logo img:hover {
+        transform: translateY(-2px);
+        box-shadow: 
+          0 12px 24px rgba(0, 0, 0, 0.5),
+          0 4px 8px rgba(232, 89, 12, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      }
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .logo-text .company-name {
         font-size: 1.4rem;
         font-weight: 700;
-        color: var(--ink);
         letter-spacing: 1px;
+        color: #fff;
+        line-height: 1;
       }
-      .logo span {
+      .logo-text .company-name span {
         color: var(--orange);
+      }
+      .logo-text .est-year {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--orange);
+        text-transform: uppercase;
       }
       nav ul {
         list-style: none;
@@ -88,7 +130,7 @@
         align-items: center;
       }
       nav ul a {
-        color: var(--ink);
+        color: #fff;
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 600;
@@ -100,15 +142,18 @@
         color: var(--orange);
       }
       .nav-cta {
-        background: var(--orange);
+        background: linear-gradient(135deg, #e8590c 0%, #c2410c 100%);
         color: #fff !important;
         padding: 0.55rem 1.3rem;
         border-radius: 3px;
-        transition: background 0.2s;
+        transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(232, 89, 12, 0.3);
       }
       .nav-cta:hover {
-        background: var(--orange-dark);
+        background: linear-gradient(135deg, #c2410c 0%, #a03309 100%);
         color: #fff !important;
+        box-shadow: 0 6px 16px rgba(232, 89, 12, 0.5);
+        transform: translateY(-2px);
       }
 
       /* HERO */
@@ -954,7 +999,13 @@
     <div class="hazard-strip"></div>
 
     <nav>
-      <div class="logo">JAYDEN <span>METAL</span> WORKS</div>
+      <div class="logo">
+        <img src="/static/images/logo.png" alt="Jayden Metal Works Logo" />
+        <div class="logo-text">
+          <div class="company-name">JAYDEN <span>METAL</span> WORKS</div>
+          <div class="est-year">Est. 2024</div>
+        </div>
+      </div>
       <ul id="navMenu">
         <li><a href="#services">Services</a></li>
         <li><a href="#why">Why Us</a></li>
